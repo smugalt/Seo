@@ -1,6 +1,8 @@
 package dev.smug.seo;
 
+import dev.smug.seo.gui.SeoClickGui;
 import dev.smug.seo.manager.Manager;
+import dev.smug.seo.util.check.BuildCheck;
 import net.fabricmc.api.ModInitializer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,11 +13,11 @@ public class Seo implements ModInitializer {
 
     public static final String NAME = "Seo";
     public static final String VERSION = "1.0.0";
-    public static final boolean Dev = true;
-    public static final String Build = Dev ? "dev" : "release";
+    public static final String Build = BuildCheck.checkVer(VERSION);
 
     private static final Logger LOGGER = LogManager.getLogger(NAME);
     private long startTime;
+    public static SeoClickGui ClickGui;
 
     public static Seo getInstance() {
         return instance;
@@ -36,6 +38,7 @@ public class Seo implements ModInitializer {
     }
 
     public void postInit() {
+        ClickGui = new SeoClickGui();
         LOGGER.info("{} {} ({}) has loaded in {}ms!", NAME,VERSION,Build, System.currentTimeMillis() - startTime);
     }
 }

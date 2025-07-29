@@ -5,6 +5,6 @@ import dev.smug.seo.api.Globals;
 public class Category implements Globals {
 
     public enum ModuleCategory {
-        Client, Combat, Render, World, Misc, Dev
+        Client, Combat, Movement, Render, World, Misc, Dev
     }
 }
