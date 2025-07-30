@@ -32,6 +32,11 @@ public class BindSetting {
         return false;
     }
 
+    public void setKeyCode(int keyCode) {
+        this.keyCode = keyCode;
+        listening = false;
+    }
+
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
         if (listening) {
             if (keyCode != GLFW.GLFW_KEY_ESCAPE) {

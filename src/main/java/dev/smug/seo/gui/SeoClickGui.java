@@ -2,12 +2,16 @@ package dev.smug.seo.gui;
 
 import dev.smug.seo.Seo;
 import dev.smug.seo.api.module.Category;
+import dev.smug.seo.api.module.Module;
+import dev.smug.seo.gui.impl.components.BindSetting;
 import dev.smug.seo.manager.ModuleManager;
+import dev.smug.seo.modules.client.ClickGui;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
 
 import java.util.EnumMap;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
@@ -15,12 +19,14 @@ public class SeoClickGui extends Screen {
 
     private static final int Padding = 10;
     private static final int Radius = 8;
-    private static final int Frame_Width = 200;
-    private static final int Frame_Height = 300;
-    private static final int Button_Width = 180;
+    private static final int Frame_Width = 80;
+    private static final int Frame_Height = 150;
+    private static final int Button_Width = 20;
     private static final int Button_Height = 20;
+    private static final int Module_Button_Width = 20;
 
     private final Map<Category.ModuleCategory, Boolean> expanded = new EnumMap<>(Category.ModuleCategory.class);
+    private final Map<Module, int[]> moduleButtonMap = new HashMap<>();
 
     public SeoClickGui() {
         super(Text.literal(Seo.VERSION + "(" + Seo.Build + ")" + " - click-gui"));
@@ -32,6 +38,7 @@ public class SeoClickGui extends Screen {
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         super.render(context, mouseX, mouseY, delta);
+        moduleButtonMap.clear();
 
         int x = Padding;
         for (Category.ModuleCategory category : Category.ModuleCategory.values()) {
@@ -57,11 +64,75 @@ public class SeoClickGui extends Screen {
             int by = f[1] + Button_Height + Padding;
             for (var module : ModuleManager.getModules()) {
                 if (module.getCategory() == category) {
-                    drawButton(context, module.getName(), f[0] + Radius, by, Button_Width, Button_Height, 0xFFCCCCCC);
+                    int moduleX = f[0] + Radius;
+                    int moduleY = by;
+                    drawButton(context, module.getName(), moduleX, moduleY, Module_Button_Width, Button_Height, 0xFFCCCCCC);
+
+                    moduleButtonMap.put(module, new int[]{moduleX, moduleY, Module_Button_Width, Button_Height});
+
+                    BindSetting bind = module.getBindSetting();
+                    bind.render(context, moduleX + Module_Button_Width + 5, moduleY);
+
                     by += Button_Height + Padding;
                 }
             }
         }
+    }
+
+    @Override
+    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+        for (Module module : ModuleManager.getModules()) {
+            BindSetting bind = module.getBindSetting();
+            if (bind.mouseClicked(mouseX, mouseY, button)) {
+                return true;
+            }
+        }
+
+        for (Map.Entry<Module, int[]> entry : moduleButtonMap.entrySet()) {
+            int[] pos = entry.getValue();
+            if (isHovering(pos[0], pos[1], pos[2], pos[3], (int) mouseX, (int) mouseY)) {
+                entry.getKey().toggle();
+                return true;
+            }
+        }
+
+        int x = Padding;
+        for (Category.ModuleCategory category : Category.ModuleCategory.values()) {
+            int[] f = getXandY(x, Padding, Frame_Width, Frame_Height);
+            if (isHovering(f[0], f[1], Button_Width, Button_Height, (int) mouseX, (int) mouseY)) {
+                expanded.put(category, !expanded.get(category));
+                return true;
+            }
+            x += Frame_Width + Padding;
+        }
+
+        return super.mouseClicked(mouseX, mouseY, button);
+    }
+
+    @Override
+    public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+        for (Module module : ModuleManager.getModules()) {
+            if (module.getBindSetting().keyPressed(keyCode, scanCode, modifiers)) {
+                return true;
+            }
+        }
+
+        if (keyCode == getClickGuiModule().getBindSetting().getKeyCode()) {
+            this.close();
+            return true;
+        }
+
+        return super.keyPressed(keyCode, scanCode, modifiers);
+    }
+
+    public void close() {
+        if (this.client != null) {
+            this.client.setScreen(null);
+        }
+    }
+
+    public ClickGui getClickGuiModule() {
+        return ModuleManager.getClickGui();
     }
 
     private void drawSquare(DrawContext ctx, int x1, int y1, int x2, int y2) {

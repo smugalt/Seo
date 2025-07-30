@@ -12,22 +12,23 @@ public class Module extends Category {
     public static final ModuleCategory Misc = ModuleCategory.Misc;
     public static final ModuleCategory Dev = ModuleCategory.Dev;
 
-    protected static final MinecraftClient mc = MinecraftClient.getInstance();
 
     private final String name;
     private boolean enabled;
     private final ModuleCategory category;
     private final String description;
-    private int keyCode;
     private final BindSetting bindSetting;
 
-    public Module(String name, int key, ModuleCategory category, String description) {
+    public Module(String name, ModuleCategory category, String description) {
+        this(name, category, description, -1);
+    }
+
+    public Module(String name, ModuleCategory category, String description, int defaultKey) {
         this.name = name;
         this.enabled = false;
         this.category = category;
         this.description = description;
-        this.keyCode = key;
-        this.bindSetting = new BindSetting("Keybind", key);
+        this.bindSetting = new BindSetting("Bind", defaultKey);
     }
 
     public ModuleCategory getCategory() {
@@ -44,15 +45,6 @@ public class Module extends Category {
 
     public String getDescription() {
         return description;
-    }
-
-    // Replaced KeyBinding with custom bind handling
-    public int getKeyCode() {
-        return keyCode;
-    }
-
-    public void setKeyCode(int keyCode) {
-        this.keyCode = keyCode;
     }
 
     public BindSetting getBindSetting() {

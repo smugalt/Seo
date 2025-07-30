@@ -1,9 +1,9 @@
 package dev.smug.seo.mixin;
 
 import dev.smug.seo.Seo;
+import dev.smug.seo.manager.ModuleManager;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.RunArgs;
-import net.minecraft.client.gui.screen.Screen;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -17,10 +17,8 @@ public class MixinMinecraftClient {
         Seo.getInstance().postInit();
     }
 
-
-    @Inject(method = "setScreen", at = @At("HEAD"), cancellable = true)
-    private void setScreen(Screen screen, CallbackInfo info) {
-
-
+    @Inject(method = "tick", at = @At("HEAD"))
+    private void onTick(CallbackInfo ci) {
+        ModuleManager.handleKeyBinds();
     }
 }
