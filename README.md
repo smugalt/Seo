@@ -27,10 +27,10 @@
 This project is not licensed under an open-source license. All rights are reserved unless explicitly stated otherwise or asked permission.
 
 ## QnA
-<h3>Am i allowed to include this repo/jar in one of my video/tierlist/archive 
+<h3>Am i allowed to include this repo/jar in one of my video/tierlist/archive</h3>
 <p>No, i don't want it to be spread and if you do, i would likely suggest a DMCA request</p>
-<h3>Does this jar contains rat since you spoke about it?</h2>
+<h3>Does this jar contains rat since you spoke about it?</h3>
 <p>No, if it did, that would mean the jar had been used for something it wasn’t intended for.</p>
-<h3> Why writing this if the jar is safe?</h2>
+<h3> Why writing this if the jar is safe?</h3>
 <p>To simply warn about the usage of a unsafe .jar</p>
 
