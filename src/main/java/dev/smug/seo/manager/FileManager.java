@@ -6,7 +6,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 
-public class FileManager {
+public class FileManager extends Manager {
     public static final File SEO_PATH = FabricLoader.getInstance().getGameDir().resolve("seo").toFile();
     public static final File MODULES = new File(SEO_PATH, "modules");
     public static final Logger LOGGER = Seo.getLogger();

@@ -1,5 +1,5 @@
 package dev.smug.seo.manager;
 
-public class ConfigManager {
+public class ConfigManager extends Manager {
 
 }

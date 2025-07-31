@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ModuleManager {
+public class ModuleManager  extends Manager {
 
     private static final Map<Module, Boolean> keyStates = new HashMap<>();
     private static final List<Module> modules = new ArrayList<>();
