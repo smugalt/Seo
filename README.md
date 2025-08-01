@@ -1,6 +1,11 @@
 <h1 align="center">Seo</h1>
 <p align="center">A custom project made to test java skills</p>
 
+![Lines of Code](https://tokei.rs/b1/github/smugalt/Seo?category=code)
+![License](https://img.shields.io/badge/license-All_Rights_Reserved-red)
+![Last Commit](https://img.shields.io/github/last-commit/smugalt/Seo)
+![Repo Size](https://img.shields.io/github/repo-size/smugalt/Seo)
+
 # How to avoid rats :
 - Use recaf tools to check for any suspicious string like :
 - **Webhhooks** "https://discord.com/api/webhooks/"
