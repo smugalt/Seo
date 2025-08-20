@@ -2,6 +2,7 @@ package dev.smug.seo.manager;
 
 import dev.smug.seo.api.module.Module;
 import dev.smug.seo.modules.client.ClickGui;
+import dev.smug.seo.modules.misc.Chat;
 import dev.smug.seo.util.input.KeybindHandler;
 
 import java.util.ArrayList;
@@ -21,6 +22,9 @@ public class ModuleManager  extends Manager {
     private void registerModules() {
         // Client
         modules.add(new ClickGui());
+
+        // Misc
+        modules.add(new Chat());
     }
 
     public static List<Module> getModules() {

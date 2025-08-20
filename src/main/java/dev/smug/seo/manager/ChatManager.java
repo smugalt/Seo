@@ -1,7 +1,6 @@
 package dev.smug.seo.manager;
 
 import net.minecraft.text.Text;
-import net.minecraft.text.Style;
 import net.minecraft.util.Formatting;
 
 import java.util.Objects;

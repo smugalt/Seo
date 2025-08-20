@@ -1,7 +1,7 @@
 package dev.smug.seo.api.module;
 
 import dev.smug.seo.gui.impl.components.BindSetting;
-import net.minecraft.client.MinecraftClient;
+import dev.smug.seo.gui.impl.components.Settings;
 
 public class Module extends Category {
 
@@ -18,6 +18,7 @@ public class Module extends Category {
     private final ModuleCategory category;
     private final String description;
     private final BindSetting bindSetting;
+    private final java.util.List<Settings> settings = new java.util.ArrayList<>();
 
     public Module(String name, ModuleCategory category, String description) {
         this(name, category, description, -1);
@@ -49,6 +50,14 @@ public class Module extends Category {
 
     public BindSetting getBindSetting() {
         return bindSetting;
+    }
+
+    public java.util.List<Settings> getSettings() {
+        return java.util.Collections.unmodifiableList(settings);
+    }
+
+    protected void addSetting(Settings setting) {
+        if (setting != null) settings.add(setting);
     }
 
     public void toggle() {
