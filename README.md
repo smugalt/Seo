@@ -1,36 +1,97 @@
 <h1 align="center">Seo</h1>
-<p align="center">A custom project made to test java skills</p>
+<p align="center">A utility mod for anarchy Minecraft servers on Fabric 1.21.8</p>
 
-# How to avoid rats :
-- Use recaf tools to check for any suspicious string like :
-- **Webhhooks** "https://discord.com/api/webhooks/"
-- **Website** such as "http://checkip.amazonaws.com" and "https://whatismyaddress.net/" which can be used to log your ip
-- **Encryption** i usually use advanced encryption for my string so it isn't detected as malicious as for they are decoded inside the client
-- **Trust** Never trust a random person or random jar, a life is worth more than a program
-  
-## Why was it made 
+<p align="center">
+  <img src="https://tokei.rs/b1/github/smugalt/Seo?category=code" alt="Lines of Code">
+  <img src="https://img.shields.io/badge/license-All_Rights_Reserved-red" alt="License">
+  <img src="https://img.shields.io/github/last-commit/smugalt/Seo" alt="Last Commit">
+  <img src="https://img.shields.io/github/repo-size/smugalt/Seo" alt="Repo Size">
+</p>
+
+## About
+
+Seo is a custom utility mod designed for anarchy Minecraft servers running on Fabric 1.21.8. This project was created as a personal learning experience to enhance Java programming skills and explore Minecraft mod development.
+
+## Features
+
 <ol>
-  <li>I like coding stuff</li>
-  <li>I'm bored</li>
-  <li>I prefer doing stuff by my own so i understand more</li>
-</ol>  
-  
-## How to use :
-- Download from release tab
-- Download fabric 1.21.8 that you can find <a href="https://github.com/FabricMC">here
-- Dowlnoad fabric api 1.21.8 that you can find <a href="https://modrinth.com/mod/fabric-api/versions">here
+    <details>
+      <summary><strong>ClickGUI</strong></summary>
+      <i>Custom dropdown style clickgui</i>
+    </details>
+    <details>
+      <summary><strong>ConfigManager</strong></summary>
+      <i>Load settings from a json and friends management</i>
+    </details>
+</ol>
 
-## Bugs'n stuff 
-- Don't tell them make a pull request if you can or keep it for yourself 
+### Prerequisites
+- Minecraft 1.21.8
+- [Fabric Loader](https://fabricmc.net/use/installer/) for 1.21.8
+- [Fabric API](https://modrinth.com/mod/fabric-api/versions?g=1.21.8) for 1.21.8
 
-## Licensing
-This project is not licensed under an open-source license. All rights are reserved unless explicitly stated otherwise or asked permission.
+### Steps
+1. Download the latest release from the [Releases](https://github.com/smugalt/Seo/releases) tab
+2. Install Fabric Loader for Minecraft 1.21.8
+3. Place the downloaded JAR file in your `.minecraft/mods` folder
+4. Place the Fabric API JAR in the same folder
+5. Launch Minecraft with the Fabric profile
 
-## QnA
-<h3>Am i allowed to include this repo/jar in one of my video/tierlist/archive</h3>
-<p>No, i don't want it to be spread and if you do, i would likely suggest a DMCA request</p>
-<h3>Does this jar contains rat since you spoke about it?</h3>
-<p>No, if it did, that would mean the jar had been used for something it wasn’t intended for.</p>
-<h3> Why writing this if the jar is safe?</h3>
-<p>To simply warn about the usage of a unsafe .jar</p>
+## Security Notice
 
+When downloading any Minecraft mod, especially for anarchy servers, always verify the source:
+
+- **Check for suspicious strings** using tools like Recaf:
+  - Discord webhooks: `https://discord.com/api/webhooks/`
+  - IP logging services: `http://checkip.amazonaws.com`, `https://whatismyaddress.net/`
+  - Encrypted/obfuscated code that could hide malicious functionality
+- **Never run untrusted JARs** - your security/personal data are more important than any utility mod
+
+## Contributing
+
+Bug reports and feature suggestions are welcome through pull requests. Please ensure any contributions maintain the project's focus on utility features for anarchy gameplay.
+
+## License
+
+This project is proprietary software. All rights are reserved. No permission is granted to redistribute, modify, or include this software in other projects without explicit written permission from the author.
+
+## FAQ
+
+<details>
+<summary><b>Can I include this mod in my video/tierlist/archive?</b></summary>
+
+No. Redistribution is not permitted. Please link to this repository instead.
+</details>
+
+<details>
+<summary><b>Is this mod safe to use?</b></summary>
+Yes. The security warnings above are general best practices for downloading any Minecraft mod, not specific concerns about this project.
+</details>
+
+<details>
+<summary><b>Why include security warnings if the mod is safe?</b></summary>
+
+To educate users about staying safe when downloading mods from any source, as the anarchy community is often targeted by malicious actors.
+</details>
+
+<details>
+<summary><b>How do I report issues or bugs?</b></summary>
+
+You don't you should only do a pull request 
+</details>
+
+<details>
+<summary><b>Is this mod compatible with other mods?</b></summary>
+
+It don't have any comptability code for potential mixins conflicts so it might work poorly with others clients
+</details>
+
+<details>
+<summary><b>Will this mod be updated for future Minecraft versions?</b></summary>
+
+Only if i see the use and can do it.
+</details>
+
+## Disclaimer
+
+This mod is provided as-is for educational and personal use. The author is not responsible for any consequences of using this software on anarchy servers or elsewhere.
