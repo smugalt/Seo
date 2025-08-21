@@ -48,15 +48,15 @@ public class SliderSetting extends Settings {
         }
     }
 
-    public int getValueAsInt() {
+    public int getInt() {
         return value.intValue();
     }
 
-    public double getValueAsDouble() {
+    public double getDouble() {
         return value.doubleValue();
     }
 
-    public Number getValue() {
+    public Number get() {
         return value;
     }
 
